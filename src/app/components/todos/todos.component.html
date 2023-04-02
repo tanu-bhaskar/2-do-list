@@ -1,0 +1,14 @@
+<form (submit) = "add()">
+    <input type="text" name="New Task" placeholder="Add New Task" [(ngModel)]="newTask">
+    <button type="submit">+</button>
+</form>
+
+<ul>
+    <li *ngFor="let todo of todos; let i = index">
+        <div class="checkbox-wrapper">
+            <input type="checkbox" id="{{ todo.content }}" (click) = "toggleDone(i)">
+            <label for="{{ todo.content }}"  class="{{ (todo.completed ? 'done' : '') }}">{{ todo.content }}</label>
+        </div>
+        <button class="remove" (click) = "remove(i)">Remove</button>
+    </li>
+</ul>
